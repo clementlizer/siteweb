@@ -2,7 +2,7 @@
    BASE / BODY / FOND
 ==================== */
 body {
-  background-image: url('image/background.jpg');
+  background-image: url('/image/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
