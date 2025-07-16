@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Autre</title>
+  <link rel="stylesheet" href="autre.css" />
+</head>
+
+<header>
+  <nav>
+     <a href="accueil.html" id="navHome">Accueil</a>
+    <a href="présentation.html" id="navAbout">Présentation</a>
+    <a href="projet.html" id="navProject">Projet</a>
+
+  </nav>
+</header>
+
+<body>
+
+  <div id="languageSelector" class="language-selector">
+    <select aria-label="Choisir la langue">
+      <option value="fr" selected>🇫🇷 FR</option>
+      <option value="en">🇬🇧 EN</option>
+    </select>
+  </div>
+
+  <h1 id="pageTitle">🎌 Mes Animes Vus</h1>
+  <input type="text" id="search" placeholder="Rechercher un anime..." />
+
+  <div id="sortdiv">
+    <label for="sortSelect" id="sortLabel">Trier par :</label>
+    <select id="sortSelect">
+      <option value="" selected>Aucun tri</option>
+      <option value="name-asc">Nom A → Z</option>
+      <option value="name-desc">Nom Z → A</option>
+      <option value="note-asc">Note croissante</option>
+      <option value="note-desc">Note décroissante</option>
+    </select>
+  </div>
+
+  <div class="grid" id="animeGrid">
+    <!-- CARTES ici (gérées par JS) -->
+  </div>
+
+  <div class="buttons">
+    <button id="loadMore">Charger plus</button>
+    <button id="loadLess" style="display: none;">Charger moins</button>
+    <p id="endMessage" style="display: none; text-align: center; color: white;">🎉 Fin de la liste</p>
+  </div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Retour en haut">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#e0eaff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" >
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="autre.js"></script>
+</body>
+
+<footer class="footer">
+  <section class="texte">
+    <p id="footerCredits">Images et résumés extraits de <a href="https://anime-sama.fr/" target="_blank" rel="noopener noreferrer">Anime-Sama</a> – © Tous droits réservés.</p>
+    <p id="footerDesign">image et design : lizergamme copyright ©</p>
+  </section>
+</footer>
+</html>

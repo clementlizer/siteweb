@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Présentation</title>
+  <link rel="stylesheet" href="accueil.css">
+</head>
+
+<body>
+
+  <!-- Sélecteur de langue -->
+  <div id="languageSelector" class="language-selector">
+    <select aria-label="Choisir la langue">
+      <option value="fr" selected>🇫🇷 FR</option>
+      <option value="en">🇬🇧 EN</option>
+    </select>
+  </div>
+
+  <h1 id="mainTitle">🖥️ Présentation du site</h1>
+
+  <header>
+    <nav>
+      <a id="navPresentation" href="présentation.html">Présentation</a>
+      <a id="navProject" href="projet.html">Projet</a>
+      <a id="navOther" href="autre.html">Autre</a>
+    </nav>
+  </header>
+
+  <section class="présentationSite">
+    <p id="p1">Ce site a été créé dans le cadre d’un projet personnel pour m’améliorer en programmation.</p>
+    <p id="p2">L’objectif est de m’en servir comme portfolio et CV. Vous y trouverez mes projets, une présentation de moi-même, ainsi que mon CV accessible sur une page dédiée.</p>
+    <p id="p3">Dans la page "Autre", j’ai mis mes passions, notamment les animés, que vous pouvez découvrir en détail.</p>
+  </section>
+
+  <section class="boxpage">
+
+    <a class="card-link" href="présentation.html" target="_blank">
+      <div class="pages">
+        <img src="image/presnetation.png" alt="Photo de profil">
+        <h2 id="card1Title">Présentation</h2>
+        <p id="card1Text">Dans cette page, vous allez retrouver ma bio et mon CV au format PDF. Vous pouvez aussi retrouver mes contacts.</p>
+      </div>
+    </a>
+
+    <a class="card-link" href="projet.html" target="_blank">
+      <div class="pages">
+        <img src="image/Github.png" alt="Photo de profil">
+        <h2 id="card2Title">Projets</h2>
+        <p id="card2Text">Dans cette page, vous allez retrouver mes projets réalisés durant mon BUT Informatique ainsi que mes projets personnels. Si vous cliquez sur les projets, vous serez redirigé vers mon GitHub.</p>
+      </div>
+    </a>
+
+    <a class="card-link" href="autre.html" target="_blank">
+      <div class="pages">
+        <img src="image/autre.png" alt="Photo de profil">
+        <h2 id="card3Title">Autre</h2>
+        <p id="card3Text">Dans cette page, vous pouvez retrouver mes activités hors informatique. Par exemple, mes animes vus sont présentés sous forme de cartes cliquables. Si vous cliquez sur le texte, vous serez redirigé vers la page Wikipédia de l’anime, et si vous cliquez sur l’image, vous serez redirigé vers la page Anime-sama. (Les étoiles indiquent mes notes.)</p>
+      </div>
+    </a>
+
+  </section>
+
+  <section class="event">
+    <h2 id="eventTitle"><strong> Projets & actus en cours :</strong></h2>
+    <p id="eventText">Dans cette section, vous retrouverez les événements à venir et les projets actuellement en développement ou en mise en ligne sur le site.</p>
+  </section>
+
+  <footer class="footer">
+    <p id="footerText">lizergamme copyright ©</p>
+  </footer>
+
+  <!-- Lien vers le script de traduction -->
+  <script src="accueil.js"></script>
+</body>
+
+</html>

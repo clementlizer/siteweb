@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>présentation</title>
+  <link rel="stylesheet" href="présentation.css">
+</head>
+
+<body>
+
+  <!-- Sélecteur de langue -->
+  <div id="languageSelector" class="language-selector">
+    <select aria-label="Choisir la langue">
+      <option value="fr" selected>🇫🇷 FR</option>
+      <option value="en">🇬🇧 EN</option>
+    </select>
+  </div>
+
+  <h1>💻 Ma présentation</h1>
+  <header>
+    <nav>
+      <a href="accueil.html">Accueil</a>
+      <a href="projet.html">Projet</a>
+      <a href="autre.html">Autre</a>
+    </nav>
+  </header>
+  <main class="container">
+
+    <!-- Ligne : infos à gauche + image à droite -->
+    <section class="top-section box">
+      <div class="infos">
+        <p>Pseudo : <strong>lizergamme</strong></p>
+        <p id="firstNameLabel">Prénom : <strong>Clément</strong></p>
+        <p>Email : <span id="email"></span></p>
+
+        <script>
+          const encoded = "Y2xlbWVudC5qdWxsaWFyZDM5QGdtYWlsLmNvbQ=="; // base64 de ton email
+          const email = atob(encoded);
+          document.getElementById("email").textContent = email;
+        </script>
+
+
+      </div>
+
+      <div class="photo">
+        <img src="image/presnetation.png" alt="Photo de profil">
+      </div>
+    </section>
+
+    <!-- Texte descriptif dessous -->
+    <section class="bio box">
+      <h2>petite présentation :</h2>
+
+      <p>Je m'appelle Clément, j'ai 19 ans et je suis en première année de <strong>BUT Informatique</strong>. J'ai
+        choisi cette formation par passion pour les jeux vidéo et par curiosité de comprendre comment sont conçues les
+        applications que nous utilisons au quotidien.</p>
+
+      <p>Au fil de cette année, je suis devenu un véritable passionné d'informatique. En parallèle, je fais partie d'un
+        club de pétanque depuis 2018 et j'ai commencé à pratiquer le volley-ball cette année.</p>
+
+      <p>En cours, nous avons abordé plusieurs langages et technologies, tels que <em>Processing, Java, C++, MySQL,
+          Arduino, HTML et CSS</em>.</p>
+
+      <p>En dehors de l'informatique, j'ai plusieurs passions : le <strong>dessin</strong>, le <strong>sport</strong>,
+        les <strong>animes/mangas</strong> et bien sûr les <strong>jeux vidéo</strong>.</p>
+    </section>
+
+    <!-- Lien vers le CV -->
+    <section class="cv-box">
+      <p>📄 <a id="cvLink" href="White simple Sales Representative Cv Resume.pdf" target="_blank">Voir mon CV (PDF)</a>
+      </p>
+    </section>
+
+
+
+    <!-- Réseaux de contact -->
+    <section class="contact box">
+      <h2>Contact</h2>
+      <ul class="contact-grid">
+        <li>💬 Discord : clement9949</li>
+        <li>📸 Instagram : <a href="https://instagram.com/clement.julliard39" target="_blank">@clement.julliard39</a>
+        </li>
+        <li>🐙 GitHub : <a href="https://github.com/clementlizer" target="_blank">github.com/clementlizer</a></li>
+        <li>🔗 LinkedIn : <a href="" target="_blank"></a>...</li>
+      </ul>
+    </section>
+
+
+  </main>
+
+  <script src="présentation.js"></script>
+</body>
+<footer class="footer">
+  <p>lizergamme copyright ©</p>
+</footer>

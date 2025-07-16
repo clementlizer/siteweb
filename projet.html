@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Mes projets</title>
+  <link rel="stylesheet" href="projet.css" />
+</head>
+
+<body>
+
+  <!-- Sélecteur de langue -->
+    <div id="languageSelector" class="language-selector">
+    <select aria-label="Choisir la langue">
+      <option value="fr" selected>🇫🇷 FR</option>
+      <option value="en">🇬🇧 EN</option>
+    </select>
+  </div>
+
+  <h1>🛠️ Mes projets</h1>
+
+    <header>
+    <nav>
+      <a href="accueil.html">Accueil</a>
+      <a href="présentation.html">Présentation</a>
+      <a href="autre.html">Autre</a>
+    </nav>
+  </header>
+
+  <section class="projects">
+    <div class="project-grid">
+
+      <!-- Projet 1 -->
+      <div class="project-item">
+        <a class="card-link" href="https://github.com/clementlizer/SAE201" target="_blank">
+          <div class="media-block" data-video="video/sae c++.mp4">
+            <div class="media-left">
+              <img src="image/c++.png" alt="Aperçu C++" />
+            </div>
+            <div class="content">
+              <h3>SAE C++</h3>
+              <p>Notepad pour les parcours présents sur Tera Aventura.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Projet 2 -->
+      <div class="project-item">
+        <a class="card-link" href="https://github.com/clementlizer/SAE203" target="_blank">
+          <div class="media-block" data-video="video/SAE ESP32.mp4">
+            <div class="media-left">
+              <img src="image/arduino.png" alt="Aperçu ESP32" />
+            </div>
+            <div class="content">
+              <h3>SAE ESP32</h3>
+              <p>Capteur connecté pour calculer la qualité de l'air.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Projet 3 -->
+      <div class="project-item">
+        <a class="card-link" href="https://github.com/clementlizer/SAE101-102" target="_blank">
+          <div class="media-block" data-video="video/SAE processing.mp4">
+            <div class="media-left">
+              <img src="image/Processing.png" alt="Aperçu Processing" />
+            </div>
+            <div class="content">
+              <h3>SAE Processing</h3>
+              <p>un robot qui dessine sa ne donne pas envie !</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Projet 4 -->
+      <div class="project-item">
+        <a class="card-link" href="https://github.com/clementlizer/SAE105" target="_blank">
+          <div class="media-block" data-video="video/Sae web.mp4">
+            <div class="media-left">
+              <img src="image/web.jpg" alt="Aperçu web" />
+            </div>
+            <div class="content">
+              <h3>SAE Html</h3>
+              <p>refonte d'un site web en gardant le design de base.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+ 
+
+  <script src="projet.js"></script>
+</body>
+
+ <footer class="footer">
+    <p>lizergamme copyright ©</p>
+  </footer>
+
+</html>

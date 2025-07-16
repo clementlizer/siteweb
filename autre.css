@@ -1,0 +1,439 @@
+/* ====================
+   BASE / BODY / FOND
+==================== */
+body {
+  background-image: url('image/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  margin: 0;
+  padding-top: 100px;
+}
+
+/* ====================
+   NAVIGATION
+==================== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(180deg, #111 0%, #000000cc 100%);
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right, rgba(255,255,255,0.15), rgba(255,255,255,0.05)) 1;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  font-family: 'Arial Black', Arial, sans-serif;
+  z-index: 1000;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+nav a {
+  color: #eee;
+  padding: 8px 24px;
+  margin-right: 20px;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background-color: transparent;
+  text-decoration: none;
+  text-shadow: 0 0 3px rgba(0,0,0,0.7);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  position: relative;
+  box-shadow: none;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 4px;
+  left: 0;
+  background-color: white;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0.6), rgba(255,255,255,0.2));
+  transform: skewX(-25deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+nav a:hover {
+  background-color: #222;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255,255,255,0.5);
+  border-color: rgba(255,255,255,0.3);
+  cursor: pointer;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover::before {
+  left: 125%;
+}
+
+/* ====================
+   GRILLE / CARDS
+==================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+a.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card {
+  margin-top: 30px;
+  background-color: rgba(5, 10, 20, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.card img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 16px;
+  flex: 1;
+  height: 330px;
+}
+
+.card-content-link {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-content-link:hover .card-content {
+  transform: none;
+}
+
+/* ====================
+   CONTENU DES CARTES
+==================== */
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.review {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ====================
+   ÉTOILES / NOTES
+==================== */
+.stars {
+  position: relative;
+  display: inline-block;
+  font-size: 1.3rem;
+  color: lightgray;
+  width: max-content;
+  margin-bottom: 8px;
+}
+
+.stars::before {
+  content: "★★★★★";
+  display: block;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: gold;
+  width: 0;
+}
+
+.stars-inner::before {
+  content: "★★★★★";
+}
+
+/* ====================
+   CHAMPS DE RECHERCHE
+==================== */
+#search {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 16px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+/* ====================
+   BOUTONS / CHARGEMENT
+==================== */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  position: relative;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Charger moins toujours à gauche */
+#loadLess {
+  order: 1;
+   height: 40px; 
+  font-size: 16px;
+  background-color: rgba(5, 10, 20, 0.6);
+  backdrop-filter: blur(12px);
+  color: white;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px; /* même largeur pour que ça ne saute pas */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Charger plus et Fin de la liste se partagent la même place */
+#loadMore,
+#endMessage {
+   height: 40px; 
+  order: 2;
+  font-size: 16px;
+  background-color: rgba(5, 10, 20, 0.6);
+  backdrop-filter: blur(12px);
+  color: white;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px; /* même largeur pour que ça ne saute pas */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Bouton hover uniquement pour charger plus */
+#loadMore:hover {
+  background-color: rgba(5, 10, 20, 0.6);
+  backdrop-filter: blur(12px);
+}
+
+/* Fin de la liste n'a pas de curseur pointer */
+#endMessage {
+  width: 140px;       /* même largeur que les boutons */
+  height: 40px;       /* même hauteur */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: white;
+  cursor: default;
+  box-sizing: border-box;
+  margin: 0;          /* pas de margin qui décale */
+  padding: 0;
+  order: 2;
+  user-select: none;
+  /* supprime toute marge/padding par défaut */
+}
+
+
+/* masquer quand nécessaire via JS */
+#loadMore.hidden,
+#endMessage.hidden {
+  display: none;
+}
+
+
+/* ====================
+   retour vers le haut
+==================== */
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: none;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(224, 234, 255, 0.4);
+  box-shadow: 0 0 10px rgba(224, 234, 255, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.back-to-top svg {
+  display: block;
+  stroke: #e0eaff;
+  transition: stroke 0.3s ease;
+}
+
+.back-to-top:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(168, 191, 255, 0.6);
+  transform: translateY(-3px);
+}
+
+.back-to-top:hover svg {
+  stroke: #a8bfff;
+}
+
+/* ====================
+   choix de la langue
+==================== */
+.language-selector {
+  display: flex;
+  justify-content: flex-end;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  border: 1px solid rgba(224, 234, 255, 0.3);
+  box-shadow: 0 0 10px rgba(224, 234, 255, 0.2);
+  padding: 6px 12px;
+  font-size: 1rem;
+  color: #e0eaff;
+  width: 100px;
+  margin: 10px 20px 20px auto;
+}
+
+.language-selector select {
+  background: transparent;
+  border: none;
+  color: #e0eaff;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 25px;
+  outline: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23e0eaff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px 16px;
+}
+
+.language-selector select::-ms-expand {
+  display: none;
+}
+
+/* ====================
+   PIED DE PAGE / FOOTER
+==================== */
+.footer {
+  margin-top: 60px;
+  background-color: rgba(5, 10, 20, 0.6);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.texte {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2px 0;
+  margin: 0 auto;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.1rem;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 0 5px rgba(255,255,255,0.1);
+  box-sizing: border-box;
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  color: #66ccff;
+}
+
+/* ====================
+   RESPONSIVE GRILLE
+==================== */
+
+/* 2 cartes sur tablette et petits écrans */
+@media screen and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 1 carte sur très petits écrans */
+@media screen and (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

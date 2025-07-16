@@ -1,0 +1,313 @@
+/* ====== GLOBAL ====== */
+body {
+  background-image: url('image/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  padding-top: 100px;
+  margin: 0;
+}
+
+/* ====== NAVIGATION ====== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 70px;
+  padding: 20px;
+  background: linear-gradient(180deg, #111 0%, #000000cc 100%);
+  border-image: linear-gradient(to right, rgba(255,255,255,0.15), rgba(255,255,255,0.05)) 1;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  font-family: 'Arial Black', Arial, sans-serif;
+  box-sizing: border-box;
+  z-index: 1000;
+  user-select: none;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #eee;
+  padding: 8px 24px;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 0 3px rgba(0,0,0,0.7);
+}
+
+nav a:not(:last-child) {
+  margin-right: 20px;
+  padding-right: 24px;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 4px;
+  left: 0;
+  background-color: white;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0.6), rgba(255,255,255,0.2));
+  transform: skewX(-25deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+nav a:hover {
+  background-color: #222;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255,255,255,0.5);
+  border-color: rgba(255,255,255,0.3);
+  cursor: pointer;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover::before {
+  left: 125%;
+}
+
+/* ====== PROJETS ====== */
+.projects {
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.project-item {
+  flex: 1 1 calc(50% - 10px);
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.project-item a.card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-item a.card-link:hover {
+  text-decoration: underline;
+}
+
+.media-block {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 20px;
+  height: 100%;
+  background-color: rgba(5, 10, 20, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.media-block:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transform: translateY(-8px);
+}
+
+.media-left {
+  width: 300px;
+  height: 180px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.media-left img,
+.media-left video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.content {
+  flex: 1;
+  color: white;
+}
+
+/* ====== FOOTER ====== */
+.footer {
+  background-color: rgba(5, 10, 20, 0.6);
+  backdrop-filter: blur(12px);
+  padding: 30px 20px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer p {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 12px 0;
+  margin: 0 auto;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.1rem;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ====== RESPONSIVE ====== */
+.language-selector {
+  display: flex;
+  justify-content: flex-end;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  border: 1px solid rgba(224, 234, 255, 0.3);
+  box-shadow: 0 0 10px rgba(224, 234, 255, 0.2);
+  padding: 6px 12px;
+  font-size: 1rem;
+  color: #e0eaff;
+  width: 100px;
+  margin: 10px 20px 20px auto;
+}
+
+.language-selector select {
+  background: transparent;
+  border: none;
+  color: #e0eaff;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 25px;
+  outline: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23e0eaff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px 16px;
+}
+
+.language-selector select::-ms-expand {
+  display: none;
+}
+/* ====== RESPONSIVE ====== */
+
+/* Tablettes (≤1024px) */
+@media (max-width: 1024px) {
+  .project-grid {
+    justify-content: center;
+  }
+
+  .project-item {
+    flex: 1 1 80%;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+  }
+
+  .media-block {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .media-left {
+    width: 100%;
+    height: 200px;
+  }
+
+  .content {
+    padding-top: 10px;
+  }
+}
+
+/* Mobiles (≤768px) */
+@media (max-width: 768px) {
+  nav {
+    padding: 10px;
+    gap: 20px;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+    padding: 6px 18px;
+  }
+
+  .project-item {
+    flex: 1 1 100%;
+    max-width: 90%;
+  }
+
+  .footer p {
+    font-size: 1rem;
+  }
+}
+
+/* Très petits écrans (≤480px) */
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+    font-size: 0.85rem;
+  }
+
+  .project-item {
+    max-width: 100%;
+    margin: 0 0 20px 0;
+  }
+
+  .media-left {
+    height: 160px;
+  }
+
+  .footer p {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}
