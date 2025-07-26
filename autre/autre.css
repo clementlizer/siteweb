@@ -16,6 +16,7 @@ body {
 /* ====================
    NAVIGATION
 ==================== */
+/* NAVIGATION BAR */
 nav {
   position: fixed;
   top: 0;
@@ -23,41 +24,73 @@ nav {
   right: 0;
   height: 70px;
   width: 100%;
-  padding: 20px;
+  padding: 0 40px;
   background: linear-gradient(180deg, #111 0%, #000000cc 100%);
-  border: 1px solid transparent;
-  border-image: linear-gradient(to right, rgba(255,255,255,0.15), rgba(255,255,255,0.05)) 1;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 40px;
+  justify-content: space-between;
   font-family: 'Arial Black', Arial, sans-serif;
   z-index: 1000;
   box-sizing: border-box;
   user-select: none;
 }
 
-nav a {
+/* LOGO À GAUCHE */
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo img {
+  height: 200px;  /* tu peux ajuster la taille ici */
+  object-fit: contain;
+  padding-left: 0;
+}
+
+/* LIENS CENTRÉS VISUELLEMENT */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 0 auto;
+  transform: translateX(-100px);
+}
+
+
+/* LIENS */
+.nav-links a {
   color: #eee;
-  padding: 8px 24px;
-  margin-right: 20px;
+  padding: 10px 24px;
   border-radius: 25px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: transparent;
   text-decoration: none;
-  text-shadow: 0 0 3px rgba(0,0,0,0.7);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 1.3px;
   text-transform: uppercase;
-  position: relative;
-  box-shadow: none;
-  overflow: hidden;
+  text-align: center;
+  display: inline-block;
+  min-width: 120px;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-nav a::after {
+/* HOVER EFFETS */
+.nav-links a:hover {
+  background-color: #222;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+/* EFFETS D’ANIMATION */
+.nav-links a::after {
   content: '';
   position: absolute;
   width: 0%;
@@ -69,7 +102,7 @@ nav a::after {
   z-index: 2;
 }
 
-nav a::before {
+.nav-links a::before {
   content: '';
   position: absolute;
   top: 0;
@@ -83,21 +116,62 @@ nav a::before {
   z-index: 1;
 }
 
-nav a:hover {
-  background-color: #222;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(255,255,255,0.5);
-  border-color: rgba(255,255,255,0.3);
-  cursor: pointer;
-}
-
-nav a:hover::after {
+.nav-links a:hover::after {
   width: 100%;
 }
 
-nav a:hover::before {
+.nav-links a:hover::before {
   left: 125%;
 }
+
+/* ====================
+   sport
+==================== */
+
+/* Grille des sports - 3 colonnes */
+.sports-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.sport-card {
+  flex: 1;
+  min-width: 280px;
+  background-color: rgba(5, 10, 20, 0.6);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.sport-card:hover {
+  transform: scale(1.05);
+}
+
+.sport-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.sport-card h2 {
+  font-size: 1.3rem;
+  margin: 10px 0 5px;
+}
+
+.sport-card p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+
+
 
 /* ====================
    GRILLE / CARDS
@@ -162,6 +236,19 @@ a.card-link {
   transform: none;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ====================
    CONTENU DES CARTES
 ==================== */
@@ -174,6 +261,12 @@ a.card-link {
 .review {
   font-size: 14px;
   line-height: 1.5;
+}
+
+#animeCounter {
+  font-size: 1.1em;
+  margin: 1em 0;
+  color: #e0eaff;
 }
 
 /* ====================
@@ -379,35 +472,93 @@ a.card-link {
 }
 
 /* ====================
+   manga
+==================== */
+
+.manga-title {
+  font-size: 2rem;
+  margin: 40px auto 15px;
+  color: white; /* couleur corail sympa */
+  text-shadow: 0 0 8px white;
+}
+
+.manga-section {
+  background-color: rgba(5, 10, 20, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px 30px;
+  max-width: 95%;
+  margin: 0 auto 40px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+.manga-section p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+.manga-link {
+  display: inline-block;
+  padding: 12px 28px;
+  background: rgba(5, 10, 20, 0.4);; /* bleu clair transparent */
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(5, 10, 20, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border: 1.5px solid rgba(5, 10, 20, 0.5);
+}
+
+.manga-link:hover {
+  background:rgba(40, 80, 165, 0.2);
+  box-shadow: 0 8px 20px rgba(42, 83, 173, 0.3);
+}
+
+
+
+/* ====================
    PIED DE PAGE / FOOTER
 ==================== */
 .footer {
   margin-top: 60px;
-  background-color: rgba(5, 10, 20, 0.6);
+  background-color: rgba(5, 10, 20, 0.6); /* même opacité partout */
   backdrop-filter: blur(12px);
-  padding: 20px;
+  padding: 30px 20px; /* un peu plus d’espace vertical */
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  min-height: 100px; /* hauteur minimale pour éviter que ce soit trop compact */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.texte {
+/* Texte dans le footer */
+.footer p, .footer .texte {
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 2px 0;
-  margin: 0 auto;
-  border-radius: 6px;
+  padding: 10px 15px; /* plus de padding pour aérer */
+  margin: 10px auto;
+  border-radius: 8px;
   color: #fff;
   font-size: 1.1rem;
-  width: 100%;
   max-width: 800px;
-  box-shadow: 0 0 5px rgba(255,255,255,0.1);
+  box-shadow: 0 0 8px rgba(255,255,255,0.1);
   box-sizing: border-box;
+  line-height: 1.4;
 }
 
+/* Footer liens */
 .footer a {
   color: #ffffff;
   text-decoration: underline;
   font-weight: bold;
+  margin: 5px;
+  transition: color 0.3s ease;
 }
 
 .footer a:hover {
@@ -426,14 +577,127 @@ a.card-link {
 }
 
 @media screen and (max-width: 768px) {
+  #search {
+  width: 100%;
+  max-width: 350px;
+  padding: 10px 16px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+  .sports-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  nav {
+    position: static;
+    height: auto;
+    padding: 12px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  body {
+    padding-top: 0;
+  }
+  
+  .logo {
+    display: flex;          /* reste visible */
+    margin-bottom: 8px;    /* espace entre logo et liens */
+    height: auto;           /* s’adapte */
+  }
+
+    .logo img {
+    height: 100px; /* réduis la taille du logo */
+    padding-left: 0;
+  }
+
+    .nav-links {
+    transform: none;  /* annule le translateX */
+    flex-direction: column;  /* colonne pour les liens */
+    align-items: center;     /* centre les liens */
+    gap: 15px;               /* espace entre liens */
+    margin: 0;               /* annule margin auto */
+  }
+
+  nav a {
+    width: 90%;
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 20px;
+  }
+
+  .nav-links a {
+    padding: 8px 16px; /* liens un peu plus petits */
+    min-width: auto;
+  }
+
 }
 
 /* 1 carte sur très petits écrans */
 @media screen and (max-width: 480px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+   nav {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 0;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    margin-bottom: 12px;
+  }
+
+  nav a {
+    width: 90%;
+    max-width: 300px;
+    padding: 12px 0;
+    min-width: auto;
+    text-align: center;
+  }
+  .pages {
+    height: auto;       /* enlever hauteur fixe */
+    max-width: 100%;
+    padding: 15px 10px;
+    border-radius: 15px;
+  }
+
+  .boxpage {
+    padding: 20px 10px; /* moins de padding */
+    gap: 25px;
+  }
+
+  .pages img {
+    width: 80px;
+    height: 80px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+    .footer {
+    padding: 30px 15px; /* plus d’espace sur mobile */
+    min-height: auto;
+  }
+  
+  .footer p, .footer .texte {
+    font-size: 1rem;
+    max-width: 100%;
+    padding: 12px 10px;
+    margin: 15px auto;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
   }
 }

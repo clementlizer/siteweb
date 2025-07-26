@@ -2,20 +2,41 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Autre</title>
   <link rel="stylesheet" href="autre.css" />
+
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SVCY1D7NE7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SVCY1D7NE7');
+</script>
 </head>
 
-<header>
-  <nav>
-     <a href="/" id="navHome">Accueil</a>
-    <a href="/présentation" id="navAbout">Présentation</a>
-    <a href="/projet" id="navProject">Projet</a>
 
-  </nav>
-</header>
+<body> <!-- ✅ le <body> commence ici -->
 
-<body>
+  <!-- ✅ déplace le <header> ici -->
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="/image/logoHeader2.png" alt="Lizergamme Logo">
+      </div>
+      <div class="nav-links">
+        <a href="/" id="navHome">Accueil</a>
+        <a href="/présentation" id="navAbout">Présentation</a>
+        <a href="/projet" id="navProject">Projet</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ... le reste de ton contenu ... -->
+
 
   <div id="languageSelector" class="language-selector">
     <select aria-label="Choisir la langue">
@@ -23,6 +44,31 @@
       <option value="en">🇬🇧 EN</option>
     </select>
   </div>
+
+
+<section id="sportsSection">
+  <h1 id="sportsTitle">🏐 Mes Sports</h1>
+  <div class="sports-grid">
+    <div class="sport-card">
+      <img src="/image/rugby.jpg" alt="rugby" />
+      <h2 id="sportRugby">Rugby</h2>
+      <p id="sportRugbyDesc">j'en ai fais de 2011-2017</p>
+    </div>
+    <div class="sport-card">
+      <img src="/image/petanque.jpg" alt="petanque" />
+      <h2 id="sportPetanque">Pétanque</h2>
+      <p id="sportPetanqueDesc">j'en fais depuis 2017</p>
+    </div>
+    <div class="sport-card">
+      <img src="/image/autre.png" alt="volley" />
+      <h2 id="sportVolley">Volley</h2>
+      <p id="sportVolleyDesc">j'ai commencé en 2024</p>
+    </div>
+  </div>
+</section>
+
+
+
 
   <h1 id="pageTitle">🎌 Mes Animes Vus</h1>
   <input type="text" id="search" placeholder="Rechercher un anime..." />
@@ -37,6 +83,8 @@
       <option value="note-desc">Note décroissante</option>
     </select>
   </div>
+
+  <div id="animeCounter" class="anime-counter">Animes affichés : 0 / 0</div>
 
   <div class="grid" id="animeGrid">
     <!-- CARTES ici (gérées par JS) -->
@@ -54,13 +102,28 @@
     </svg>
   </button>
 
-  <script src="autre.js"></script>
-</body>
+<h1 class="manga-title" id="mangaTitle">📕 Mes Mangas</h1>
+
+<section class="manga-section">
+  <p id="mangaSectionText">Voici un lien qui vous emmènera vers ma collection de mangas :</p>
+  <a href="https://www.mangacollec.com/user/lizergamme/collection" target="_blank" rel="noopener noreferrer" class="manga-link" id="mangaLink">
+    Voir ma collection Mangacollec
+  </a>
+</section>
+
+
+
+
+ <script src="autre.js"></script>
 
 <footer class="footer">
   <section class="texte">
     <p id="footerCredits">Images et résumés extraits de <a href="https://anime-sama.fr/" target="_blank" rel="noopener noreferrer">Anime-Sama</a> – © Tous droits réservés.</p>
-    <p id="footerDesign">image et design : lizergamme copyright ©</p>
+    <p id="footerDesign">images et design : lizergamme copyright ©</p>
   </section>
 </footer>
+
+</body>
+</html>
+
 </html>

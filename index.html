@@ -3,11 +3,38 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Présentation</title>
   <link rel="stylesheet" href="accueil.css">
+
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SVCY1D7NE7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SVCY1D7NE7');
+</script>
 </head>
 
+
+
 <body>
+<header>
+  <nav>
+    <div class="logo">
+      <img src="image/logoHeader2.png" alt="Lizergamme Logo">
+    </div>
+    <div class="nav-links">
+      <a href="/présentation">Présentation</a>
+      <a href="/projet">Projet</a>
+      <a href="/autre">Autre</a>
+    </div>
+  </nav>
+</header>
+
 
   <!-- Sélecteur de langue -->
   <div id="languageSelector" class="language-selector">
@@ -19,13 +46,8 @@
 
   <h1 id="mainTitle">🖥️ Présentation du site</h1>
 
-  <header>
-    <nav>
-      <a id="navPresentation" href="/présentation">Présentation</a>
-      <a id="navProject" href="/projet">Projet</a>
-      <a id="navOther" href="/autre">Autre</a>
-    </nav>
-  </header>
+
+
 
   <section class="présentationSite">
     <p id="p1">Ce site a été créé dans le cadre d’un projet personnel pour m’améliorer en programmation.</p>
@@ -35,7 +57,7 @@
 
   <section class="boxpage">
 
-    <a class="card-link" href="présentation.html" target="_blank">
+    <a class="card-link" href="/présentation">
       <div class="pages">
         <img src="image/presnetation.png" alt="Photo de profil">
         <h2 id="card1Title">Présentation</h2>
@@ -43,7 +65,7 @@
       </div>
     </a>
 
-    <a class="card-link" href="projet.html" target="_blank">
+    <a class="card-link" href="/projet" >
       <div class="pages">
         <img src="image/Github.png" alt="Photo de profil">
         <h2 id="card2Title">Projets</h2>
@@ -51,7 +73,7 @@
       </div>
     </a>
 
-    <a class="card-link" href="autre.html" target="_blank">
+    <a class="card-link" href="/autre" >
       <div class="pages">
         <img src="image/autre.png" alt="Photo de profil">
         <h2 id="card3Title">Autre</h2>
@@ -64,6 +86,12 @@
   <section class="event">
     <h2 id="eventTitle"><strong> Projets & actus en cours :</strong></h2>
     <p id="eventText">Dans cette section, vous retrouverez les événements à venir et les projets actuellement en développement ou en mise en ligne sur le site.</p>
+
+    <p>- Ajout de cartes dans la page "Autre".</p>
+    <p>- Ajout d'autres sections dans la page "Autre".</p>
+    <p>- Amélioration du CV.</p>
+    <p>- Ajout de nouveaux projets.</p>
+
   </section>
 
   <footer class="footer">

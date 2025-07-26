@@ -17,7 +17,7 @@ const translations = {
     navAbout: "Présentation",
     navProject: "Projet",
     footerCredits: "Images et résumés extraits de Anime-Sama – © Tous droits réservés.",
-    footerDesign: "image et design : lizergamme copyright ©",
+    footerDesign: "images et design : lizergamme copyright ©",
     h1Title: "🎌 Mes Animes Vus",
     searchPlaceholder: "Rechercher un anime...",
     sortLabel: "Trier par :",
@@ -31,14 +31,25 @@ const translations = {
     loadMore: "Charger plus",
     loadLess: "Charger moins",
     endList: "🎉 Fin de la liste",
-    backToTop: "Retour en haut"
+    animeCounterText: "Animes affichés : {shown} / {total}",
+    backToTop: "Retour en haut",
+    mangaTitle: "📕 Mes Mangas",
+     mangaSectionText: "Voici un lien qui vous emmènera vers ma collection de mangas :",
+    mangaLinkText: "Voir ma collection Mangacollec",
+    sportsTitle: "🏐 Mes Sports",
+    sportRugby: "Rugby",
+    sportRugbyDesc: "j'en ai fais de 2011-2017",
+    sportPetanque: "Pétanque",
+    sportPetanqueDesc: "j'en fais depuis 2017",
+    sportVolley: "Volley",
+    sportVolleyDesc: "j'ai commencé en 2024"
   },
   en: {
     navHome: "Home",
     navAbout: "About",
     navProject: "Project",
     footerCredits: "Images and summaries from Anime-Sama – © All rights reserved.",
-    footerDesign: "image and design: lizergamme copyright ©",
+    footerDesign: "images and design: lizergamme copyright ©",
     h1Title: "🎌 My Watched Animes",
     searchPlaceholder: "Search an anime...",
     sortLabel: "Sort by:",
@@ -52,7 +63,18 @@ const translations = {
     loadMore: "Load more",
     loadLess: "Load less",
     endList: "🎉 End of the list",
-    backToTop: "Back to top"
+     animeCounterText: "Animes displayed: {shown} / {total}",
+    backToTop: "Back to top",
+    mangaTitle: "📕 My Mangas",
+     mangaSectionText: "Here is a link that will take you to my manga collection:",
+    mangaLinkText: "View my Mangacollec collection",
+     sportsTitle: "🏐 My Sports",
+    sportRugby: "Rugby",
+    sportRugbyDesc: "I played from 2011 to 2017",
+    sportPetanque: "Pétanque",
+    sportPetanqueDesc: "I've been playing since 2017",
+    sportVolley: "Volleyball",
+    sportVolleyDesc: "I started in 2024"
   }
 };
 
@@ -62,10 +84,10 @@ function createCard({ title, image, wikiLink, animeLink, rating, description }) 
 
   card.innerHTML = `
     <div class="card">
-      <a href="${animeLink}" target="_blank">
+      <a href="${animeLink}" target="_blank" rel="noopener noreferrer">
         <img src="${image}" alt="${title}" />
       </a>
-      <a href="${wikiLink}" target="_blank" class="card-link">
+      <a href="${wikiLink}" target="_blank" rel="noopener noreferrer" class="card-link">
         <div class="card-content">
           <div class="title">${title}</div>
           <div class="stars" data-rating="${rating}">
@@ -93,11 +115,13 @@ function filterAndDisplayCards() {
   const query = searchInput.value.toLowerCase();
   const sortValue = sortSelect.value;
 
+  // Filtrer par titre
   let filteredCards = allCards.filter(card => {
     const title = card.querySelector('.title').textContent.toLowerCase();
     return title.includes(query);
   });
 
+  // Trier
   if (sortValue !== '') {
     filteredCards.sort((a, b) => {
       const titleA = a.querySelector('.title').textContent.toLowerCase();
@@ -116,23 +140,42 @@ function filterAndDisplayCards() {
   }
 
   animeGrid.innerHTML = '';
+
   filteredCards.forEach((card, index) => {
-    card.style.display = index < visibleCount ? 'block' : 'none';
-    animeGrid.appendChild(card);
+    if (index < visibleCount) {
+      card.style.display = 'block';
+
+      // Appliquer effet fade-in si nouveau
+      if (!animeGrid.contains(card)) {
+        card.classList.add('fade-in');
+        setTimeout(() => {
+          card.classList.remove('fade-in');
+        }, 400); // Durée de l'animation (en ms)
+      }
+
+      animeGrid.appendChild(card);
+    } else {
+      card.style.display = 'none';
+    }
   });
 
-  loadMoreBtn.style.display = visibleCount < filteredCards.length ? 'block' : 'none';
-  loadLessBtn.style.display = visibleCount > step ? 'block' : 'none';
+  // Boutons et message de fin
+  loadMoreBtn.style.display = visibleCount < filteredCards.length ? 'inline-block' : 'none';
+  loadLessBtn.style.display = visibleCount > step ? 'inline-block' : 'none';
   endMessage.style.display = (visibleCount >= filteredCards.length && filteredCards.length > 0) ? 'block' : 'none';
 
   updateStars();
+  updateAnimeCounter(filteredCards.length);
 }
 
 function loadAnimesFromFile(lang = 'fr') {
   const filename = lang === 'en' ? 'autre en.txt' : 'autre.txt';
 
   fetch(filename)
-    .then(response => response.text())
+    .then(response => {
+      if (!response.ok) throw new Error(`Fichier introuvable: ${filename}`);
+      return response.text();
+    })
     .then(text => {
       const lines = text
         .split('\n')
@@ -156,8 +199,25 @@ function loadAnimesFromFile(lang = 'fr') {
 
 function applyTranslations(lang) {
   const t = translations[lang];
+  const sportsIds = [
+  'sportsTitle',
+  'sportRugby', 'sportRugbyDesc',
+  'sportPetanque', 'sportPetanqueDesc',
+  'sportVolley', 'sportVolleyDesc'
+];
 
-  document.querySelector('h1').textContent = t.h1Title;
+  const pageTitle = document.getElementById('pageTitle');
+  if (pageTitle) pageTitle.textContent = t.h1Title;
+
+  const mangaSectionText = document.getElementById('mangaSectionText');
+  if (mangaSectionText) mangaSectionText.textContent = t.mangaSectionText;
+
+  const mangaLink = document.getElementById('mangaLink');
+  if (mangaLink) mangaLink.textContent = t.mangaLinkText;
+
+  const mangaTitle = document.getElementById('mangaTitle');
+  if (mangaTitle) mangaTitle.textContent = t.mangaTitle;
+
   searchInput.placeholder = t.searchPlaceholder;
   document.getElementById('sortLabel').textContent = t.sortLabel;
 
@@ -186,7 +246,6 @@ function applyTranslations(lang) {
   endMessage.textContent = t.endList;
   backToTop.setAttribute('aria-label', t.backToTop);
 
-  // Traduire Header & Footer dynamiquement
   const headerIds = ['navHome', 'navAbout', 'navProject'];
   const footerIds = ['footerCredits', 'footerDesign'];
 
@@ -199,6 +258,11 @@ function applyTranslations(lang) {
     const el = document.getElementById(id);
     if (el) el.textContent = t[id];
   });
+  
+sportsIds.forEach(id => {
+  const el = document.getElementById(id);
+  if (el && t[id]) el.textContent = t[id];
+});
 }
 
 // Événements
@@ -206,7 +270,9 @@ searchInput.addEventListener('input', () => {
   visibleCount = step;
   filterAndDisplayCards();
 });
-sortSelect.addEventListener('change', () => filterAndDisplayCards());
+sortSelect.addEventListener('change', () => {
+  filterAndDisplayCards();
+});
 loadMoreBtn.addEventListener('click', () => {
   visibleCount += step;
   filterAndDisplayCards();
@@ -216,7 +282,6 @@ loadLessBtn.addEventListener('click', () => {
   filterAndDisplayCards();
 });
 
-// Gestion de la langue avec localStorage
 languageSelect.addEventListener('change', (e) => {
   const lang = e.target.value;
   localStorage.setItem('preferredLang', lang);
@@ -241,3 +306,19 @@ window.addEventListener('scroll', () => {
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+
+
+function updateAnimeCounter(totalVisible) {
+  const counter = document.getElementById('animeCounter');
+  if (!counter) return;
+
+  const lang = languageSelect.value;
+  const t = translations[lang] || translations['fr'];
+  const total = allCards.length;
+  const shown = Math.min(visibleCount, totalVisible);
+
+  counter.textContent = t.animeCounterText
+    .replace('{shown}', shown)
+    .replace('{total}', total);
+}

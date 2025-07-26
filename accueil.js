@@ -49,9 +49,17 @@ function applyTranslations(lang) {
       el.textContent = t[id];
     }
   }
+
+  // Met à jour les liens de navigation
+  const navLinks = document.querySelectorAll('nav a');
+  if (navLinks.length >= 3) {
+    navLinks[0].textContent = t.navPresentation;
+    navLinks[1].textContent = t.navProject;
+    navLinks[2].textContent = t.navOther;
+  }
 }
 
-// 🔁 Changement de langue = sauvegarde + traduction
+// 🔁 Changement de langue
 languageSelect.addEventListener('change', (e) => {
   const lang = e.target.value;
   localStorage.setItem('preferredLang', lang);
